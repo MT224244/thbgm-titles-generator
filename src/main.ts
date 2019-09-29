@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 import { readFileSync, writeFileSync } from 'fs';
-import { decode } from 'iconv-lite';
+import { decode, encode } from 'iconv-lite';
 import { dirname, basename } from 'path';
 
 if (process.argv.length < 3) process.exit(0);
@@ -14,10 +14,10 @@ exec(`chcp 65001 && "touhouSE/touhouSE.exe" --cui --select-regex thbgm.fmt^|musi
     const no = Object.keys(names)[0].slice(2, -3);
     const dir = basename(dirname(thPath));
 
-    const outputText = (
+    const outputText = encode(
         `#「${dir}」曲データ\n\n` +
         `@${thPath.replace(/\//g, '\\')},${dir}\n\n` +
-        `${data}`);
+        `${data}`, 'Shift_JIS');
 
     writeFileSync(`titles_th${no}.txt`, outputText);
 
