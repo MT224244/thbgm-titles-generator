@@ -1,0 +1,20 @@
+{
+    "name": "thbgm-titles-generator",
+    "version": "1.0.0",
+    "main": "dist/main.js",
+    "repository": "https://github.com/MT224244/thbgm-titles-generator",
+    "author": "MT224244",
+    "license": "MIT",
+    "scripts": {
+        "start": "node .",
+        "watch": "tsc -w",
+        "setup": "tsc"
+    },
+    "devDependencies": {
+        "@types/node": "^12.7.8",
+        "typescript": "^3.6.3"
+    },
+    "dependencies": {
+        "iconv-lite": "^0.5.0"
+    }
+}
